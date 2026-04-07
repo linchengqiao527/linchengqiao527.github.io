@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YourName</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0e14;
+            color: #b0b8c4;
+            line-height: 1.6;
+        }
+
+        a {
+            color: #4da3ff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #79b8ff;
+        }
+
+        /* 布局 */
+        .layout {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* 左侧栏 */
+        .sidebar {
+            width: 280px;
+            background: #0d1117;
+            border-right: 1px solid #1a2030;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            padding: 2.5rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+        }
+
+        .avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1a2a3a, #0d1117);
+            border: 2px solid #1e3a5f;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            position: relative;
+        }
+
+        .avatar::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            border: 1px solid rgba(77, 163, 255, 0.2);
+        }
+
+        .sidebar h1 {
+            text-align: center;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #e6edf3;
+            margin-bottom: 0.25rem;
+        }
+
+        .sidebar .title {
+            text-align: center;
+            color: #6e7a8a;
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .sidebar .bio {
+            color: #8b949e;
+            font-size: 0.85rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            padding: 0 0.5rem;
+        }
+
+        /* 侧边栏导航 */
+        .nav-section {
+            margin-top: auto;
+        }
+
+        .nav-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #4a5568;
+            margin-bottom: 0.5rem;
+            padding-left: 0.5rem;
+        }
+
+        .nav-links {
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-bottom: 2px;
+        }
+
+        .nav-links a {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.5rem 0.75rem;
+            color: #8b949e;
+            font-size: 0.85rem;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        .nav-links a:hover {
+            background: rgba(77, 163, 255, 0.08);
+            color: #e6edf3;
+            text-decoration: none;
+        }
+
+        .nav-icon {
+            width: 16px;
+            height: 16px;
+            opacity: 0.6;
+        }
+
+        /* 社交链接 */
+        .social-links {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+            justify-content: center;
+        }
+
+        .social-link {
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            background: #161b22;
+            border: 1px solid #21262d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6e7a8a;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+
+        .social-link:hover {
+            border-color: #4da3ff;
+            color: #4da3ff;
+        }
+
+        /* 右侧内容 */
+        .main {
+            flex: 1;
+            margin-left: 280px;
+            padding: 3rem 3.5rem;
+            max-width: 860px;
+        }
+
+        /* 背景装饰 */
+        .main::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(77, 163, 255, 0.04), transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* 内容区块 */
+        section {
+            position: relative;
+            z-index: 1;
+            padding: 2.5rem 0;
+            border-bottom: 1px solid #1a2030;
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-icon {
+            width: 20px;
+            height: 20px;
+            color: #4da3ff;
+            opacity: 0.8;
+        }
+
+        h2 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #e6edf3;
+            letter-spacing: -0.01em;
+        }
+
+        /* 项目/经历列表 */
+        .item {
+            margin-bottom: 2rem;
+            padding-left: 1.25rem;
+            border-left: 2px solid #1a2030;
+            position: relative;
+        }
+
+        .item:last-child {
+            margin-bottom: 0;
+        }
+
+        .item::before {
+            content: '';
+            position: absolute;
+            left: -5px;
+            top: 6px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #1a2a3a;
+            border: 1px solid #2a4a6a;
+        }
+
+        .item:hover::before {
+            border-color: #4da3ff;
+            background: rgba(77, 163, 255, 0.3);
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .item h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #e6edf3;
+        }
+
+        .item .date {
+            color: #4a5568;
+            font-size: 0.8rem;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .item .subtitle {
+            color: #6e7a8a;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .item p {
+            color: #8b949e;
+            font-size: 0.875rem;
+        }
+
+        /* 论文 */
+        .paper {
+            margin-bottom: 1.5rem;
+            padding: 1rem 1.25rem;
+            background: #0d1117;
+            border: 1px solid #1a2030;
+            border-radius: 8px;
+            transition: border-color 0.2s;
+        }
+
+        .paper:hover {
+            border-color: #2a3a4a;
+        }
+
+        .paper h3 {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #e6edf3;
+            margin-bottom: 0.35rem;
+        }
+
+        .paper .meta {
+            color: #6e7a8a;
+            font-size: 0.8rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .paper .venue {
+            color: #4da3ff;
+        }
+
+        .paper .abstract {
+            color: #6e7a8a;
+            font-size: 0.825rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+
+        .paper .links {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .paper .links a {
+            font-size: 0.75rem;
+            color: #6e7a8a;
+            padding: 0.15rem 0.5rem;
+            border: 1px solid #1a2030;
+            border-radius: 4px;
+        }
+
+        .paper .links a:hover {
+            color: #4da3ff;
+            border-color: #4da3ff;
+        }
+
+        /* 项目 */
+        .project {
+            margin-bottom: 1.5rem;
+            padding: 1rem 1.25rem;
+            background: #0d1117;
+            border: 1px solid #1a2030;
+            border-radius: 8px;
+            transition: border-color 0.2s;
+        }
+
+        .project:hover {
+            border-color: #2a3a4a;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project h3 {
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .project h3 a {
+            color: #e6edf3;
+        }
+
+        .project h3 a:hover {
+            color: #4da3ff;
+        }
+
+        .project p {
+            color: #6e7a8a;
+            font-size: 0.85rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .project .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .project .tag {
+            color: #6e7a8a;
+            font-size: 0.75rem;
+            padding: 0.15rem 0.6rem;
+            background: rgba(77, 163, 255, 0.06);
+            border: 1px solid #1a2a3a;
+            border-radius: 12px;
+        }
+
+        /* 技能 */
+        .skill-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .skill-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .skill-group-label {
+            color: #8b949e;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .skill {
+            color: #6e7a8a;
+            font-size: 0.78rem;
+            padding: 0.2rem 0.65rem;
+            background: #0d1117;
+            border: 1px solid #1a2030;
+            border-radius: 4px;
+        }
+
+        /* 联系 */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .contact-item {
+            padding: 1rem;
+            background: #0d1117;
+            border: 1px solid #1a2030;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.2s;
+        }
+
+        .contact-item:hover {
+            border-color: #2a3a4a;
+        }
+
+        .contact-item .icon {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item .label {
+            color: #6e7a8a;
+            font-size: 0.8rem;
+        }
+
+        .contact-item .value {
+            color: #4da3ff;
+            font-size: 0.8rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 900px) {
+            .sidebar {
+                display: none;
+            }
+            .main {
+                margin-left: 0;
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .item-header {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="layout">
+        <!-- 左侧栏 -->
+        <aside class="sidebar">
+            <div class="avatar">&#9670;</div>
+            <h1>YourName</h1>
+            <div class="title">Developer / Researcher</div>
+            <p class="bio">简短的个人介绍，描述研究方向和技术兴趣。</p>
+
+            <nav class="nav-section">
+                <div class="nav-label">Navigation</div>
+                <ul class="nav-links">
+                    <li><a href="#about">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-7 8-7s8 3 8 7"/></svg>
+                        About
+                    </a></li>
+                    <li><a href="#education">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5"/></svg>
+                        Education
+                    </a></li>
+                    <li><a href="#experience">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+                        Experience
+                    </a></li>
+                    <li><a href="#publications">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                        Publications
+                    </a></li>
+                    <li><a href="#projects">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l2 2 4-4"/></svg>
+                        Projects
+                    </a></li>
+                    <li><a href="#skills">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                        Skills
+                    </a></li>
+                    <li><a href="#contact">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        Contact
+                    </a></li>
+                </ul>
+            </nav>
+
+            <div class="social-links">
+                <a href="https://github.com/yourusername" class="social-link" target="_blank" title="GitHub">GH</a>
+                <a href="https://twitter.com/yourusername" class="social-link" target="_blank" title="Twitter">TW</a>
+                <a href="https://linkedin.com/in/yourusername" class="social-link" target="_blank" title="LinkedIn">IN</a>
+            </div>
+        </aside>
+
+        <!-- 右侧内容 -->
+        <main class="main">
+            <!-- About -->
+            <section id="about">
+                <div class="section-header">
+                    <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-7 8-7s8 3 8 7"/></svg>
+                    <h2>About</h2>
+                </div>
+                <p>这里写一段简短的自我介绍。描述你的研究方向、技术兴趣和当前在做的事情。保持简洁，2-3句话即可。</p>
+            </section>
+
+            <!-- Education -->
+            <section id="education">
+                <div class="section-header">
+                    <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5"/></svg>
+                    <h2>Education</h2>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <h3>硕士，软件工程</h3>
+                        <span class="date">2019.09 - 2022.07</span>
+                    </div>
+                    <div class="subtitle">厦门大学</div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <h3>客座学生</h3>
+                        <span class="date">2019.06 - 2021.05</span>
+                    </div>
+                    <div class="subtitle">中国科学院深圳先进技术研究院 · 师从曾伟</div>
+                </div>
+            </section>
+
+            <!-- Experience -->
+            <section id="experience">
+                <div class="section-header">
+                    <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+                    <h2>Experience</h2>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <h3>资深应用算法工程师</h3>
+                        <span class="date">2022.07 - 至今</span>
+                    </div>
+                    <div class="subtitle">淘宝闪购 - 地图及感知信号算法</div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <h3>助理应用算法工程师（实习）</h3>
+                        <span class="date">2021.05 - 2022.07</span>
+                    </div>
+                    <div class="subtitle">淘宝闪购 - 地图及感知信号算法</div>
+                </div>
+            </section>
+
+            <!-- Publications -->
+            <section id="publications">
+                <div class="section-header">
+                    <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    <h2>Publications</h2>
+                </div>
+                <div class="paper">
+                    <h3>Paper Title: Research on XXXX</h3>
+                    <div class="meta"><span class="venue">Conference/Journal</span>, 20XX</div>
+                    <div class="meta">YourName, Co-author 1, Co-author 2</div>
+                    <div class="abstract">简要描述研究问题和主要发现。</div>
+                    <div class="links">
+                        <a href="#" target="_blank">PDF</a>
+                        <a href="#" target="_blank">DOI</a>
+                        <a href="#" target="_blank">Code</a>
+                    </div>
+                </div>
+                <div class="paper">
+                    <h3>Paper Title: XXXX Method and Application</h3>
+                    <div class="meta"><span class="venue">Conference/Journal</span>, 20XX</div>
+                    <div class="meta">YourName, Co-author 1</div>
+                    <div class="abstract">简要描述研究问题和主要发现。</div>
+                    <div class="links">
+                        <a href="#" target="_blank">PDF</a>
+                        <a href="#" target="_blank">DOI</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects -->
+            <section id="projects">
+                <div class="section-header">
+                    <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l2 2 4-4"/></svg>
+                    <h2>Projects</h2>
+                </div>
+                <div class="project">
+                    <div class="project-header">
+                        <h3><a href="#" target="_blank">Project Alpha</a></h3>
+                    </div>
+                    <p>一个高性能的全栈应用，采用现代化架构设计。</p>
+                    <div class="tags">
+                        <span class="tag">React</span>
+                        <span class="tag">Node.js</span>
+                        <span class="tag">PostgreSQL</span>
+                    </div>
+                </div>
+                <div class="project">
+                    <div class="project-header">
+                        <h3><a href="#" target="_blank">Project Beta</a></h3>
+                    </div>
+                    <p>轻量级工具库，简化开发者工作流程。</p>
+                    <div class="tags">
+                        <span class="tag">TypeScript</span>
+                        <span class="tag">CLI</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Skills -->
+            <section id="skills">
+                <div class="section-header">
+                    <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                    <h2>Skills</h2>
+                </div>
+                <div class="skill-group">
+                    <div class="skill-group-label">Languages</div>
+                    <div class="skills">
+                        <span class="skill">JavaScript</span>
+                        <span class="skill">TypeScript</span>
+                        <span class="skill">Python</span>
+                        <span class="skill">Go</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <div class="skill-group-label">Frameworks</div>
+                    <div class="skills">
+                        <span class="skill">React</span>
+                        <span class="skill">Next.js</span>
+                        <span class="skill">Node.js</span>
+                        <span class="skill">Vue.js</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <div class="skill-group-label">Tools</div>
+                    <div class="skills">
+                        <span class="skill">Git</span>
+                        <span class="skill">Docker</span>
+                        <span class="skill">AWS</span>
+                        <span class="skill">PostgreSQL</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact -->
+            <section id="contact">
+                <div class="section-header">
+                    <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    <h2>Contact</h2>
+                </div>
+                <div class="contact-grid">
+                    <a href="mailto:your@email.com" class="contact-item">
+                        <div class="icon">&#9993;</div>
+                        <div class="label">Email</div>
+                        <div class="value">your@email.com</div>
+                    </a>
+                    <a href="https://github.com/yourusername" class="contact-item" target="_blank">
+                        <div class="icon">&#9670;</div>
+                        <div class="label">GitHub</div>
+                        <div class="value">@yourusername</div>
+                    </a>
+                    <a href="https://twitter.com/yourusername" class="contact-item" target="_blank">
+                        <div class="icon">&#10022;</div>
+                        <div class="label">Twitter</div>
+                        <div class="value">@yourusername</div>
+                    </a>
+                    <a href="https://linkedin.com/in/yourusername" class="contact-item" target="_blank">
+                        <div class="icon">&#9733;</div>
+                        <div class="label">LinkedIn</div>
+                        <div class="value">YourName</div>
+                    </a>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
