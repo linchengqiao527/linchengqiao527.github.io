@@ -13,31 +13,58 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #0a0e14;
-            color: #b0b8c4;
+            background: #f0f4f8;
+            color: #334155;
             line-height: 1.6;
         }
 
         a {
-            color: #4da3ff;
+            color: #2563eb;
             text-decoration: none;
         }
 
         a:hover {
-            color: #79b8ff;
+            color: #1d4ed8;
+        }
+
+        /* 背景装饰 */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -200px;
+            right: -200px;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.06), transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: -300px;
+            left: -200px;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.05), transparent 70%);
+            pointer-events: none;
+            z-index: 0;
         }
 
         /* 布局 */
         .layout {
             display: flex;
             min-height: 100vh;
+            position: relative;
+            z-index: 1;
         }
 
         /* 左侧栏 */
         .sidebar {
             width: 280px;
-            background: #0d1117;
-            border-right: 1px solid #1a2030;
+            background: #ffffff;
+            border-right: 1px solid #e2e8f0;
             position: fixed;
             top: 0;
             left: 0;
@@ -54,7 +81,7 @@
             border-radius: 50%;
             margin: 0 auto 1rem;
             overflow: hidden;
-            border: 2px solid #1e3a5f;
+            border: 2px solid #dbeafe;
             position: relative;
         }
 
@@ -70,7 +97,7 @@
             position: absolute;
             inset: -4px;
             border-radius: 50%;
-            border: 1px solid rgba(77, 163, 255, 0.2);
+            border: 1px solid rgba(37, 99, 235, 0.15);
             pointer-events: none;
         }
 
@@ -78,19 +105,19 @@
             text-align: center;
             font-size: 1.25rem;
             font-weight: 600;
-            color: #e6edf3;
+            color: #1e293b;
             margin-bottom: 0.25rem;
         }
 
         .sidebar .title {
             text-align: center;
-            color: #6e7a8a;
+            color: #64748b;
             font-size: 0.85rem;
             margin-bottom: 1.5rem;
         }
 
         .sidebar .bio {
-            color: #8b949e;
+            color: #64748b;
             font-size: 0.85rem;
             text-align: center;
             margin-bottom: 1.5rem;
@@ -107,7 +134,7 @@
             font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            color: #4a5568;
+            color: #94a3b8;
             margin-bottom: 0.5rem;
             padding-left: 0.5rem;
         }
@@ -125,15 +152,15 @@
             align-items: center;
             gap: 0.6rem;
             padding: 0.5rem 0.75rem;
-            color: #8b949e;
+            color: #64748b;
             font-size: 0.85rem;
             border-radius: 6px;
             transition: all 0.2s;
         }
 
         .nav-links a:hover {
-            background: rgba(77, 163, 255, 0.08);
-            color: #e6edf3;
+            background: rgba(37, 99, 235, 0.06);
+            color: #1e293b;
             text-decoration: none;
         }
 
@@ -155,19 +182,19 @@
             width: 32px;
             height: 32px;
             border-radius: 6px;
-            background: #161b22;
-            border: 1px solid #21262d;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #6e7a8a;
+            color: #64748b;
             font-size: 0.85rem;
             transition: all 0.2s;
         }
 
         .social-link:hover {
-            border-color: #4da3ff;
-            color: #4da3ff;
+            border-color: #2563eb;
+            color: #2563eb;
         }
 
         /* 右侧内容 */
@@ -178,25 +205,10 @@
             max-width: 860px;
         }
 
-        /* 背景装饰 */
-        .main::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            right: 0;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(77, 163, 255, 0.04), transparent 70%);
-            pointer-events: none;
-            z-index: 0;
-        }
-
         /* 内容区块 */
         section {
-            position: relative;
-            z-index: 1;
             padding: 2.5rem 0;
-            border-bottom: 1px solid #1a2030;
+            border-bottom: 1px solid #e2e8f0;
         }
 
         section:last-child {
@@ -213,14 +225,14 @@
         .section-icon {
             width: 20px;
             height: 20px;
-            color: #4da3ff;
+            color: #2563eb;
             opacity: 0.8;
         }
 
         h2 {
             font-size: 1.15rem;
             font-weight: 600;
-            color: #e6edf3;
+            color: #1e293b;
             letter-spacing: -0.01em;
         }
 
@@ -228,7 +240,7 @@
         .item {
             margin-bottom: 2rem;
             padding-left: 1.25rem;
-            border-left: 2px solid #1a2030;
+            border-left: 2px solid #e2e8f0;
             position: relative;
         }
 
@@ -244,13 +256,13 @@
             width: 8px;
             height: 8px;
             border-radius: 50%;
-            background: #1a2a3a;
-            border: 1px solid #2a4a6a;
+            background: #dbeafe;
+            border: 1px solid #93c5fd;
         }
 
         .item:hover::before {
-            border-color: #4da3ff;
-            background: rgba(77, 163, 255, 0.3);
+            border-color: #2563eb;
+            background: rgba(37, 99, 235, 0.3);
         }
 
         .item-header {
@@ -265,28 +277,28 @@
         .item h3 {
             font-size: 0.95rem;
             font-weight: 600;
-            color: #e6edf3;
+            color: #1e293b;
         }
 
         .item .date {
-            color: #4a5568;
+            color: #94a3b8;
             font-size: 0.8rem;
             font-variant-numeric: tabular-nums;
         }
 
         .item .subtitle {
-            color: #6e7a8a;
+            color: #64748b;
             font-size: 0.9rem;
             margin-bottom: 0.5rem;
         }
 
         .item p {
-            color: #8b949e;
+            color: #64748b;
             font-size: 0.875rem;
         }
 
         .item ul {
-            color: #8b949e;
+            color: #64748b;
             font-size: 0.875rem;
             padding-left: 1rem;
         }
@@ -296,65 +308,110 @@
             list-style-type: disc;
         }
 
-        /* 论文 */
-        .paper {
-            margin-bottom: 1.5rem;
-            padding: 1rem 1.25rem;
-            background: #0d1117;
-            border: 1px solid #1a2030;
-            border-radius: 8px;
-            transition: border-color 0.2s;
+        /* 导师链接 */
+        .advisor {
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
         }
 
-        .paper:hover {
-            border-color: #2a3a4a;
+        .advisor a {
+            color: #2563eb;
+            font-weight: 500;
+        }
+
+        /* 论文 */
+        .paper {
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 1.25rem;
+            align-items: flex-start;
+        }
+
+        .paper:last-child {
+            margin-bottom: 0;
+        }
+
+        .paper-image {
+            width: 200px;
+            min-width: 200px;
+            height: 130px;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .paper-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .paper-image .placeholder {
+            color: #94a3b8;
+            font-size: 2rem;
+        }
+
+        .paper-info {
+            flex: 1;
         }
 
         .paper h3 {
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: #e6edf3;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #1e293b;
             margin-bottom: 0.35rem;
             line-height: 1.5;
         }
 
-        .paper .meta {
-            color: #6e7a8a;
-            font-size: 0.8rem;
+        .paper .authors {
+            color: #475569;
+            font-size: 0.825rem;
             margin-bottom: 0.25rem;
         }
 
+        .paper .authors strong {
+            color: #1e293b;
+        }
+
         .paper .venue {
-            color: #4da3ff;
+            color: #64748b;
+            font-size: 0.8rem;
+            font-style: italic;
         }
 
         .paper .badge {
             display: inline-block;
-            background: rgba(77, 163, 255, 0.1);
-            color: #4da3ff;
+            background: rgba(37, 99, 235, 0.08);
+            color: #2563eb;
             font-size: 0.7rem;
             padding: 0.1rem 0.4rem;
             border-radius: 3px;
             margin-left: 0.5rem;
+            font-style: normal;
         }
 
         .paper .links {
             display: flex;
-            gap: 0.75rem;
+            gap: 0.5rem;
             margin-top: 0.5rem;
         }
 
         .paper .links a {
             font-size: 0.75rem;
-            color: #6e7a8a;
-            padding: 0.15rem 0.5rem;
-            border: 1px solid #1a2030;
+            color: #2563eb;
+            padding: 0.15rem 0.6rem;
+            border: 1px solid #dbeafe;
             border-radius: 4px;
+            background: rgba(37, 99, 235, 0.04);
         }
 
         .paper .links a:hover {
-            color: #4da3ff;
-            border-color: #4da3ff;
+            background: rgba(37, 99, 235, 0.1);
         }
 
         /* 技能 */
@@ -367,7 +424,7 @@
         }
 
         .skill-group-label {
-            color: #8b949e;
+            color: #64748b;
             font-size: 0.8rem;
             font-weight: 500;
             margin-bottom: 0.5rem;
@@ -380,11 +437,11 @@
         }
 
         .skill {
-            color: #6e7a8a;
+            color: #475569;
             font-size: 0.78rem;
             padding: 0.2rem 0.65rem;
-            background: #0d1117;
-            border: 1px solid #1a2030;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
             border-radius: 4px;
         }
 
@@ -397,15 +454,15 @@
 
         .contact-item {
             padding: 1rem;
-            background: #0d1117;
-            border: 1px solid #1a2030;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
             border-radius: 8px;
             text-align: center;
             transition: all 0.2s;
         }
 
         .contact-item:hover {
-            border-color: #2a3a4a;
+            border-color: #cbd5e1;
         }
 
         .contact-item .icon {
@@ -414,22 +471,22 @@
         }
 
         .contact-item .label {
-            color: #6e7a8a;
+            color: #64748b;
             font-size: 0.8rem;
         }
 
         .contact-item .value {
-            color: #4da3ff;
+            color: #2563eb;
             font-size: 0.8rem;
         }
 
         /* 页脚 */
         footer {
             padding: 2rem 0;
-            color: #484f58;
+            color: #94a3b8;
             font-size: 0.8rem;
             text-align: center;
-            border-top: 1px solid #1a2030;
+            border-top: 1px solid #e2e8f0;
         }
 
         /* 响应式 */
@@ -450,6 +507,14 @@
             .item-header {
                 flex-direction: column;
                 gap: 0;
+            }
+            .paper {
+                flex-direction: column;
+            }
+            .paper-image {
+                width: 100%;
+                min-width: auto;
+                height: 160px;
             }
         }
     </style>
@@ -511,7 +576,7 @@
                     <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-7 8-7s8 3 8 7"/></svg>
                     <h2>About</h2>
                 </div>
-                <p>算法工程师，目前就职于阿里巴巴集团本地生活事业部，从事轨迹挖掘相关工作。硕士毕业于厦门大学软件工程专业，研究方向为深度学习与智慧交通，在 IEEE TVCG、IEEE TKDE 等顶级期刊发表论文 2 篇（CCF-A）。</p>
+                <p>算法工程师，目前就职于阿里巴巴集团本地生活事业部，从事地图及感知信号算法相关工作。硕士毕业于厦门大学软件工程专业，研究方向为深度学习与智慧交通，在 IEEE TVCG、IEEE TKDE 等顶级期刊发表论文多篇。</p>
             </section>
 
             <!-- Education -->
@@ -526,6 +591,7 @@
                         <span class="date">2019.09 - 2022.06</span>
                     </div>
                     <div class="subtitle">厦门大学 · 信息学院</div>
+                    <div class="advisor">指导老师：<a href="https://junconglin.github.io/" target="_blank">林俊聪</a></div>
                 </div>
                 <div class="item">
                     <div class="item-header">
@@ -547,14 +613,14 @@
                         <h3>资深应用算法工程师</h3>
                         <span class="date">2022.07 - 至今</span>
                     </div>
-                    <div class="subtitle">阿里巴巴集团 · 本地生活 · 淘宝闪购</div>
+                    <div class="subtitle">阿里巴巴集团 · 本地生活 · 淘宝闪购-地图及感知信号算法</div>
                 </div>
                 <div class="item">
                     <div class="item-header">
                         <h3>助理应用算法工程师（实习）</h3>
                         <span class="date">2021.05 - 2022.07</span>
                     </div>
-                    <div class="subtitle">阿里巴巴集团 · 本地生活 · 淘宝闪购</div>
+                    <div class="subtitle">阿里巴巴集团 · 本地生活 · 淘宝闪购-地图及感知信号算法</div>
                     <ul>
                         <li>对大规模骑手轨迹进行平滑、去噪处理，使用 Douglas-Peucker/VM 算法压缩提取轨迹数据</li>
                         <li>复现并优化 TraClus 算法，通过经纬度网格索引和卷积式召回解决复杂度问题，实现全国全量数据运行</li>
@@ -566,7 +632,8 @@
                         <h3>客座学生</h3>
                         <span class="date">2020.08 - 2021.05</span>
                     </div>
-                    <div class="subtitle">中国科学院深圳先进技术研究院 · 数字所 · 师从曾伟研究员</div>
+                    <div class="subtitle">中国科学院深圳先进技术研究院 · 数字所</div>
+                    <div class="advisor">指导老师：<a href="https://zeng-wei.com/" target="_blank">曾伟</a> 研究员</div>
                     <ul>
                         <li>结合可变形卷积对交通流量预测中的空间非平稳性建模，提出 Deflow-Net 网络模型</li>
                         <li>对深圳市 GPS 数据进行清洗筛选，探究 MAUP 问题对交通流量预测的影响</li>
@@ -582,64 +649,73 @@
                     <h2>Publications</h2>
                 </div>
                 <div class="paper">
-                    <h3>Revisiting the Modifiable Areal Unit Problem in Deep Traffic Prediction with Visual Analytics</h3>
-                    <div class="meta">
-                        <span class="venue">IEEE TVCG (Proc. IEEE VAST 2020)</span>
-                        <span class="badge">CCF-A</span>
+                    <div class="paper-image">
+                        <img src="https://ieeexplore.ieee.org/ielx7/2945/9663056/09228894/tg-2020-3030416-gif/09228894001.gif" alt="Paper 1" onerror="this.parentElement.innerHTML='<span class=placeholder>📄</span>'">
                     </div>
-                    <div class="meta">Zeng W., <strong>Lin C.</strong>, Lin J., et al.</div>
-                    <div class="meta">vol. 27, no. 2, pp. 839-848, 2021</div>
-                    <div class="links">
-                        <a href="https://ieeexplore.ieee.org/document/9228894/" target="_blank">IEEE Xplore</a>
-                        <a href="https://doi.org/10.1109/TVCG.2020.3030416" target="_blank">DOI</a>
-                    </div>
-                </div>
-                <div class="paper">
-                    <h3>Modeling Spatial Nonstationarity via Deformable Convolutions for Deep Traffic Flow Prediction</h3>
-                    <div class="meta">
-                        <span class="venue">IEEE TKDE</span>
-                        <span class="badge">CCF-A</span>
-                    </div>
-                    <div class="meta">Zeng W., <strong>Lin C.</strong>, Lin J., et al.</div>
-                    <div class="meta">vol. 35, no. 1, pp. 833-846, 2023</div>
-                    <div class="links">
-                        <a href="https://ieeexplore.ieee.org/document/9540306/" target="_blank">IEEE Xplore</a>
-                        <a href="https://doi.org/10.1109/TKDE.2021.3112386" target="_blank">DOI</a>
+                    <div class="paper-info">
+                        <h3>Revisiting the Modifiable Areal Unit Problem in Deep Traffic Prediction with Visual Analytics</h3>
+                        <div class="authors">Wei Zeng, <strong>Chengqiao Lin</strong>, Juncong Lin, Xing Qu, Jian Zhao, Yingcai Wu</div>
+                        <div class="venue"><em>IEEE Transactions on Visualization and Computer Graphics</em> (Proc. IEEE VAST 2020), vol. 27, no. 2, pp. 839-848, 2021 <span class="badge">CCF-A</span></div>
+                        <div class="links">
+                            <a href="https://ieeexplore.ieee.org/document/9228894/" target="_blank">IEEE Xplore</a>
+                            <a href="https://doi.org/10.1109/TVCG.2020.3030416" target="_blank">DOI</a>
+                        </div>
                     </div>
                 </div>
                 <div class="paper">
-                    <h3>Attention Based Convolutional Networks for Traffic Flow Prediction</h3>
-                    <div class="meta">
-                        <span class="venue">Multimedia Tools and Applications</span>
-                        <span class="badge">CCF-B</span>
+                    <div class="paper-image">
+                        <img src="https://ieeexplore.ieee.org/ielx7/69/10036334/09540306/tg-2021-3112386-gif/09540306001.gif" alt="Paper 2" onerror="this.parentElement.innerHTML='<span class=placeholder>📄</span>'">
                     </div>
-                    <div class="meta">Lin J., <strong>Lin C.</strong>, Ye Q.</div>
-                    <div class="meta">vol. 83, no. 3, pp. 7379-7394, 2024</div>
-                    <div class="links">
-                        <a href="https://link.springer.com/article/10.1007/s11042-023-15395-w" target="_blank">Springer</a>
-                        <a href="https://doi.org/10.1007/s11042-023-15395-w" target="_blank">DOI</a>
-                    </div>
-                </div>
-                <div class="paper">
-                    <h3>Semi-Automatic Construction of Surrounding Domain for Aerodynamic Simulation with PolyCube</h3>
-                    <div class="meta">
-                        <span class="venue">ICCRD 2021</span>
-                    </div>
-                    <div class="meta"><strong>Lin C.</strong>, Lin J., Chen P., Luo B.</div>
-                    <div class="links">
-                        <a href="https://ieeexplore.ieee.org/document/9730366/" target="_blank">IEEE Xplore</a>
-                        <a href="https://doi.org/10.1109/ICCRD53934.2022.00025" target="_blank">DOI</a>
+                    <div class="paper-info">
+                        <h3>Modeling Spatial Nonstationarity via Deformable Convolutions for Deep Traffic Flow Prediction</h3>
+                        <div class="authors">Wei Zeng, <strong>Chengqiao Lin</strong>, Juncong Lin, Tao Li, Anthony K. H. Tung</div>
+                        <div class="venue"><em>IEEE Transactions on Knowledge and Data Engineering</em>, vol. 35, no. 1, pp. 833-846, 2023 <span class="badge">CCF-A</span></div>
+                        <div class="links">
+                            <a href="https://ieeexplore.ieee.org/document/9540306/" target="_blank">IEEE Xplore</a>
+                            <a href="https://doi.org/10.1109/TKDE.2021.3112386" target="_blank">DOI</a>
+                        </div>
                     </div>
                 </div>
                 <div class="paper">
-                    <h3>Hybrid Artificial Immune System for Controlled Procedural Modeling</h3>
-                    <div class="meta">
-                        <span class="venue">IEEE ICPECA 2022</span>
+                    <div class="paper-image">
+                        <span class="placeholder">📄</span>
                     </div>
-                    <div class="meta"><strong>Lin C.</strong>, Fang L., Li S., Luo B., Lin J.</div>
-                    <div class="links">
-                        <a href="https://ieeexplore.ieee.org/document/9719277/" target="_blank">IEEE Xplore</a>
-                        <a href="https://doi.org/10.1109/ICPECA53709.2022.9719277" target="_blank">DOI</a>
+                    <div class="paper-info">
+                        <h3>Attention Based Convolutional Networks for Traffic Flow Prediction</h3>
+                        <div class="authors">Juncong Lin, <strong>Chengqiao Lin</strong>, Qifeng Ye</div>
+                        <div class="venue"><em>Multimedia Tools and Applications</em>, vol. 83, no. 3, pp. 7379-7394, 2024 <span class="badge">CCF-B</span></div>
+                        <div class="links">
+                            <a href="https://link.springer.com/article/10.1007/s11042-023-15395-w" target="_blank">Springer</a>
+                            <a href="https://doi.org/10.1007/s11042-023-15395-w" target="_blank">DOI</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="paper">
+                    <div class="paper-image">
+                        <span class="placeholder">📄</span>
+                    </div>
+                    <div class="paper-info">
+                        <h3>Semi-Automatic Construction of Surrounding Domain for Aerodynamic Simulation with PolyCube</h3>
+                        <div class="authors"><strong>Chengqiao Lin</strong>, Juncong Lin, Pan Chen, Bin Luo</div>
+                        <div class="venue"><em>IEEE International Conference on Computer Research and Development</em> (ICCRD), 2021</div>
+                        <div class="links">
+                            <a href="https://ieeexplore.ieee.org/document/9730366/" target="_blank">IEEE Xplore</a>
+                            <a href="https://doi.org/10.1109/ICCRD53934.2022.00025" target="_blank">DOI</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="paper">
+                    <div class="paper-image">
+                        <span class="placeholder">📄</span>
+                    </div>
+                    <div class="paper-info">
+                        <h3>Hybrid Artificial Immune System for Controlled Procedural Modeling</h3>
+                        <div class="authors"><strong>Chengqiao Lin</strong>, Lian Fang, Sheng Li, Bin Luo, Juncong Lin</div>
+                        <div class="venue"><em>IEEE International Conference on Power, Electronics and Computer Applications</em> (ICPECA), 2022</div>
+                        <div class="links">
+                            <a href="https://ieeexplore.ieee.org/document/9719277/" target="_blank">IEEE Xplore</a>
+                            <a href="https://doi.org/10.1109/ICPECA53709.2022.9719277" target="_blank">DOI</a>
+                        </div>
                     </div>
                 </div>
             </section>
