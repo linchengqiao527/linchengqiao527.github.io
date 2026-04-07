@@ -126,6 +126,23 @@
         }
 
         /* 侧边栏导航 */
+        .interests {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            padding: 0 0.25rem;
+        }
+
+        .interest-tag {
+            font-size: 0.75rem;
+            padding: 0.2rem 0.5rem;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
+            color: #64748b;
+        }
         .nav-section {
             margin-top: auto;
         }
@@ -318,6 +335,12 @@
         .advisor a {
             color: #ff6a00;
             font-weight: 500;
+        }
+
+        .honors-inline {
+            color: #64748b;
+            font-size: 0.85rem;
+            margin-top: 0.35rem;
         }
 
         /* 论文 */
@@ -531,6 +554,12 @@
             <p class="bio">
                 算法工程师，专注于智慧交通、轨迹数据挖掘与深度学习应用。
             </p>
+            <div class="interests">
+                <span class="interest-tag">🏸 羽毛球</span>
+                <span class="interest-tag">🥾 徒步</span>
+                <span class="interest-tag">🚴 骑行</span>
+                <span class="interest-tag">🌍 旅游</span>
+            </div>
 
             <nav class="nav-section">
                 <div class="nav-label">Navigation</div>
@@ -563,7 +592,7 @@
             </nav>
 
             <div class="social-links">
-                <a href="https://github.com/linchengqiao" class="social-link" target="_blank" title="GitHub">GH</a>
+                <a href="https://github.com/linchengqiao527" class="social-link" target="_blank" title="GitHub">GH</a>
                 <a href="mailto:cq.lin@foxmail.com" class="social-link" title="Email">@</a>
             </div>
         </aside>
@@ -577,6 +606,7 @@
                     <h2>About</h2>
                 </div>
                 <p>算法工程师，目前就职于阿里巴巴集团本地生活事业部，从事地图及感知信号算法相关工作。硕士毕业于厦门大学软件工程专业，研究方向为深度学习与智慧交通，在 IEEE TVCG、IEEE TKDE 等顶级期刊发表论文多篇。</p>
+                <p style="margin-top: 1rem;">工作之外，我热爱羽毛球、徒步、骑行和旅游。喜欢用脚步丈量城市，用车轮探索未知风景，也在山野间寻找代码之外的宁静与自由。</p>
             </section>
 
             <!-- Education -->
@@ -592,6 +622,7 @@
                     </div>
                     <div class="subtitle">厦门大学 · 信息学院</div>
                     <div class="advisor">指导老师：<a href="https://junconglin.github.io/" target="_blank">林俊聪</a></div>
+                    <div class="honors-inline">荣誉：厦门大学三好学生 · 厦门大学星皓奖学金</div>
                 </div>
                 <div class="item">
                     <div class="item-header">
@@ -599,6 +630,7 @@
                         <span class="date">2015.09 - 2019.06</span>
                     </div>
                     <div class="subtitle">天津科技大学 · 计算机科学与信息工程学院</div>
+                    <div class="honors-inline">荣誉：朱颖奖学金 · 校三好学生 · 优秀毕业生</div>
                 </div>
             </section>
 
@@ -773,9 +805,9 @@
                     <a href="tel:173-2023-4201" class="contact-item">
                         <div class="icon">&#9742;</div>
                         <div class="label">Phone</div>
-                        <div class="value">+86 173-2023-4201</div>
+                        <div class="value">173-2023-4201</div>
                     </a>
-                    <a href="https://github.com/linchengqiao" class="contact-item" target="_blank">
+                    <a href="https://github.com/linchengqiao527" class="contact-item" target="_blank">
                         <div class="icon">&#9670;</div>
                         <div class="label">GitHub</div>
                         <div class="value">@linchengqiao</div>
@@ -783,7 +815,7 @@
                     <a href="#" class="contact-item">
                         <div class="icon">&#9733;</div>
                         <div class="label">Location</div>
-                        <div class="value">北京，朝阳</div>
+                        <div class="value">福建，厦门</div>
                     </a>
                 </div>
             </section>
