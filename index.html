@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YourName</title>
+    <title>林诚乔 - Lin Chengqiao</title>
     <style>
         * {
             margin: 0;
@@ -59,6 +59,7 @@
             align-items: center;
             justify-content: center;
             font-size: 2rem;
+            color: #4da3ff;
             position: relative;
         }
 
@@ -91,6 +92,7 @@
             text-align: center;
             margin-bottom: 1.5rem;
             padding: 0 0.5rem;
+            line-height: 1.7;
         }
 
         /* 侧边栏导航 */
@@ -280,6 +282,17 @@
             font-size: 0.875rem;
         }
 
+        .item ul {
+            color: #8b949e;
+            font-size: 0.875rem;
+            padding-left: 1rem;
+        }
+
+        .item ul li {
+            margin-bottom: 0.35rem;
+            list-style-type: disc;
+        }
+
         /* 论文 */
         .paper {
             margin-bottom: 1.5rem;
@@ -295,10 +308,11 @@
         }
 
         .paper h3 {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 500;
             color: #e6edf3;
             margin-bottom: 0.35rem;
+            line-height: 1.5;
         }
 
         .paper .meta {
@@ -311,16 +325,20 @@
             color: #4da3ff;
         }
 
-        .paper .abstract {
-            color: #6e7a8a;
-            font-size: 0.825rem;
-            margin-bottom: 0.5rem;
-            line-height: 1.5;
+        .paper .badge {
+            display: inline-block;
+            background: rgba(77, 163, 255, 0.1);
+            color: #4da3ff;
+            font-size: 0.7rem;
+            padding: 0.1rem 0.4rem;
+            border-radius: 3px;
+            margin-left: 0.5rem;
         }
 
         .paper .links {
             display: flex;
             gap: 0.75rem;
+            margin-top: 0.5rem;
         }
 
         .paper .links a {
@@ -334,62 +352,6 @@
         .paper .links a:hover {
             color: #4da3ff;
             border-color: #4da3ff;
-        }
-
-        /* 项目 */
-        .project {
-            margin-bottom: 1.5rem;
-            padding: 1rem 1.25rem;
-            background: #0d1117;
-            border: 1px solid #1a2030;
-            border-radius: 8px;
-            transition: border-color 0.2s;
-        }
-
-        .project:hover {
-            border-color: #2a3a4a;
-        }
-
-        .project-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 1rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .project h3 {
-            font-size: 0.95rem;
-            font-weight: 500;
-        }
-
-        .project h3 a {
-            color: #e6edf3;
-        }
-
-        .project h3 a:hover {
-            color: #4da3ff;
-        }
-
-        .project p {
-            color: #6e7a8a;
-            font-size: 0.85rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .project .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .project .tag {
-            color: #6e7a8a;
-            font-size: 0.75rem;
-            padding: 0.15rem 0.6rem;
-            background: rgba(77, 163, 255, 0.06);
-            border: 1px solid #1a2a3a;
-            border-radius: 12px;
         }
 
         /* 技能 */
@@ -458,6 +420,15 @@
             font-size: 0.8rem;
         }
 
+        /* 页脚 */
+        footer {
+            padding: 2rem 0;
+            color: #484f58;
+            font-size: 0.8rem;
+            text-align: center;
+            border-top: 1px solid #1a2030;
+        }
+
         /* 响应式 */
         @media (max-width: 900px) {
             .sidebar {
@@ -484,10 +455,12 @@
     <div class="layout">
         <!-- 左侧栏 -->
         <aside class="sidebar">
-            <div class="avatar">&#9670;</div>
-            <h1>YourName</h1>
-            <div class="title">Developer / Researcher</div>
-            <p class="bio">简短的个人介绍，描述研究方向和技术兴趣。</p>
+            <div class="avatar">LCQ</div>
+            <h1>林诚乔</h1>
+            <div class="title">Algorithm Engineer</div>
+            <p class="bio">
+                算法工程师，专注于智慧交通、轨迹数据挖掘与深度学习应用。
+            </p>
 
             <nav class="nav-section">
                 <div class="nav-label">Navigation</div>
@@ -508,10 +481,6 @@
                         <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
                         Publications
                     </a></li>
-                    <li><a href="#projects">
-                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l2 2 4-4"/></svg>
-                        Projects
-                    </a></li>
                     <li><a href="#skills">
                         <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
                         Skills
@@ -524,9 +493,8 @@
             </nav>
 
             <div class="social-links">
-                <a href="https://github.com/yourusername" class="social-link" target="_blank" title="GitHub">GH</a>
-                <a href="https://twitter.com/yourusername" class="social-link" target="_blank" title="Twitter">TW</a>
-                <a href="https://linkedin.com/in/yourusername" class="social-link" target="_blank" title="LinkedIn">IN</a>
+                <a href="https://github.com/linchengqiao" class="social-link" target="_blank" title="GitHub">GH</a>
+                <a href="mailto:cq.lin@foxmail.com" class="social-link" title="Email">@</a>
             </div>
         </aside>
 
@@ -538,7 +506,7 @@
                     <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-7 8-7s8 3 8 7"/></svg>
                     <h2>About</h2>
                 </div>
-                <p>这里写一段简短的自我介绍。描述你的研究方向、技术兴趣和当前在做的事情。保持简洁，2-3句话即可。</p>
+                <p>算法工程师，目前就职于阿里巴巴集团本地生活事业部，从事地图及感知信号算法相关工作。硕士毕业于厦门大学软件工程专业，研究方向为深度学习与智慧交通，在 IEEE TVCG、IEEE TKDE 等顶级期刊发表论文 2 篇（CCF-A）。</p>
             </section>
 
             <!-- Education -->
@@ -549,17 +517,17 @@
                 </div>
                 <div class="item">
                     <div class="item-header">
-                        <h3>硕士，软件工程</h3>
-                        <span class="date">2019.09 - 2022.07</span>
+                        <h3>软件工程 · 硕士</h3>
+                        <span class="date">2019.09 - 2022.06</span>
                     </div>
-                    <div class="subtitle">厦门大学</div>
+                    <div class="subtitle">厦门大学 · 信息学院</div>
                 </div>
                 <div class="item">
                     <div class="item-header">
-                        <h3>客座学生</h3>
-                        <span class="date">2019.06 - 2021.05</span>
+                        <h3>计算机科学与技术 · 本科</h3>
+                        <span class="date">2015.09 - 2019.06</span>
                     </div>
-                    <div class="subtitle">中国科学院深圳先进技术研究院 · 师从曾伟</div>
+                    <div class="subtitle">天津科技大学 · 计算机科学与信息工程学院</div>
                 </div>
             </section>
 
@@ -574,14 +542,31 @@
                         <h3>资深应用算法工程师</h3>
                         <span class="date">2022.07 - 至今</span>
                     </div>
-                    <div class="subtitle">淘宝闪购 - 地图及感知信号算法</div>
+                    <div class="subtitle">阿里巴巴集团 · 本地生活 · 淘宝闪购-地图及感知信号算法</div>
                 </div>
                 <div class="item">
                     <div class="item-header">
                         <h3>助理应用算法工程师（实习）</h3>
                         <span class="date">2021.05 - 2022.07</span>
                     </div>
-                    <div class="subtitle">淘宝闪购 - 地图及感知信号算法</div>
+                    <div class="subtitle">阿里巴巴集团 · 本地生活 · 淘宝闪购-地图及感知信号算法</div>
+                    <ul>
+                        <li>对大规模骑手轨迹进行平滑、去噪处理，使用 Douglas-Peucker/VM 算法压缩提取轨迹数据</li>
+                        <li>复现并优化 TraClus 算法，通过经纬度网格索引和卷积式召回解决复杂度问题，实现全国全量数据运行</li>
+                        <li>基于骑手末端轨迹数据挖掘，恢复小区内部路网信息</li>
+                    </ul>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <h3>客座学生</h3>
+                        <span class="date">2020.08 - 2021.05</span>
+                    </div>
+                    <div class="subtitle">中国科学院深圳先进技术研究院 · 数字所 · 师从曾伟研究员</div>
+                    <ul>
+                        <li>结合可变形卷积对交通流量预测中的空间非平稳性建模，提出 Deflow-Net 网络模型</li>
+                        <li>对深圳市 GPS 数据进行清洗筛选，探究 MAUP 问题对交通流量预测的影响</li>
+                        <li>研究基于深度学习的交通流量预测的可视表达与交互分析方法</li>
+                    </ul>
                 </div>
             </section>
 
@@ -592,54 +577,29 @@
                     <h2>Publications</h2>
                 </div>
                 <div class="paper">
-                    <h3>Paper Title: Research on XXXX</h3>
-                    <div class="meta"><span class="venue">Conference/Journal</span>, 20XX</div>
-                    <div class="meta">YourName, Co-author 1, Co-author 2</div>
-                    <div class="abstract">简要描述研究问题和主要发现。</div>
-                    <div class="links">
-                        <a href="#" target="_blank">PDF</a>
-                        <a href="#" target="_blank">DOI</a>
-                        <a href="#" target="_blank">Code</a>
+                    <h3>Revisiting the Modifiable Areal Unit Problem in Deep Traffic Prediction with Visual Analytics</h3>
+                    <div class="meta">
+                        <span class="venue">IEEE TVCG (Proc. IEEE VAST 2020)</span>
+                        <span class="badge">CCF-A</span>
                     </div>
+                    <div class="meta">Zeng W., <strong>Lin C.</strong>, Lin J., et al.</div>
+                    <div class="meta">vol. 27, no. 2, pp. 839-848, 2021</div>
                 </div>
                 <div class="paper">
-                    <h3>Paper Title: XXXX Method and Application</h3>
-                    <div class="meta"><span class="venue">Conference/Journal</span>, 20XX</div>
-                    <div class="meta">YourName, Co-author 1</div>
-                    <div class="abstract">简要描述研究问题和主要发现。</div>
-                    <div class="links">
-                        <a href="#" target="_blank">PDF</a>
-                        <a href="#" target="_blank">DOI</a>
+                    <h3>Modeling Spatial Nonstationarity via Deformable Convolutions for Deep Traffic Flow Prediction</h3>
+                    <div class="meta">
+                        <span class="venue">IEEE TKDE</span>
+                        <span class="badge">CCF-A</span>
                     </div>
+                    <div class="meta">Zeng W., <strong>Lin C.</strong>, Lin J., et al.</div>
+                    <div class="meta">Early Access</div>
                 </div>
-            </section>
-
-            <!-- Projects -->
-            <section id="projects">
-                <div class="section-header">
-                    <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l2 2 4-4"/></svg>
-                    <h2>Projects</h2>
-                </div>
-                <div class="project">
-                    <div class="project-header">
-                        <h3><a href="#" target="_blank">Project Alpha</a></h3>
+                <div class="paper">
+                    <h3>Semi-Automatic Construction of Surrounding Domain for Aerodynamic Simulation with PolyCube</h3>
+                    <div class="meta">
+                        <span class="venue">ICCRD 2021</span>
                     </div>
-                    <p>一个高性能的全栈应用，采用现代化架构设计。</p>
-                    <div class="tags">
-                        <span class="tag">React</span>
-                        <span class="tag">Node.js</span>
-                        <span class="tag">PostgreSQL</span>
-                    </div>
-                </div>
-                <div class="project">
-                    <div class="project-header">
-                        <h3><a href="#" target="_blank">Project Beta</a></h3>
-                    </div>
-                    <p>轻量级工具库，简化开发者工作流程。</p>
-                    <div class="tags">
-                        <span class="tag">TypeScript</span>
-                        <span class="tag">CLI</span>
-                    </div>
+                    <div class="meta"><strong>Lin C.</strong>, Lin J., Chen P., et al.</div>
                 </div>
             </section>
 
@@ -650,30 +610,33 @@
                     <h2>Skills</h2>
                 </div>
                 <div class="skill-group">
-                    <div class="skill-group-label">Languages</div>
+                    <div class="skill-group-label">编程语言</div>
                     <div class="skills">
-                        <span class="skill">JavaScript</span>
-                        <span class="skill">TypeScript</span>
+                        <span class="skill">C/C++</span>
+                        <span class="skill">C++11</span>
                         <span class="skill">Python</span>
-                        <span class="skill">Go</span>
                     </div>
                 </div>
                 <div class="skill-group">
-                    <div class="skill-group-label">Frameworks</div>
+                    <div class="skill-group-label">算法 & 机器学习</div>
                     <div class="skills">
-                        <span class="skill">React</span>
-                        <span class="skill">Next.js</span>
-                        <span class="skill">Node.js</span>
-                        <span class="skill">Vue.js</span>
+                        <span class="skill">数据结构</span>
+                        <span class="skill">回归</span>
+                        <span class="skill">分类</span>
+                        <span class="skill">聚类</span>
+                        <span class="skill">深度学习</span>
+                        <span class="skill">TraClus</span>
+                        <span class="skill">可变形卷积</span>
                     </div>
                 </div>
                 <div class="skill-group">
-                    <div class="skill-group-label">Tools</div>
+                    <div class="skill-group-label">数据库 & 网络</div>
                     <div class="skills">
-                        <span class="skill">Git</span>
-                        <span class="skill">Docker</span>
-                        <span class="skill">AWS</span>
-                        <span class="skill">PostgreSQL</span>
+                        <span class="skill">MySQL</span>
+                        <span class="skill">Redis</span>
+                        <span class="skill">TCP/IP</span>
+                        <span class="skill">HTTP</span>
+                        <span class="skill">FTP</span>
                     </div>
                 </div>
             </section>
@@ -685,28 +648,32 @@
                     <h2>Contact</h2>
                 </div>
                 <div class="contact-grid">
-                    <a href="mailto:your@email.com" class="contact-item">
+                    <a href="mailto:cq.lin@foxmail.com" class="contact-item">
                         <div class="icon">&#9993;</div>
                         <div class="label">Email</div>
-                        <div class="value">your@email.com</div>
+                        <div class="value">cq.lin@foxmail.com</div>
                     </a>
-                    <a href="https://github.com/yourusername" class="contact-item" target="_blank">
+                    <a href="tel:173-2023-4201" class="contact-item">
+                        <div class="icon">&#9742;</div>
+                        <div class="label">Phone</div>
+                        <div class="value">173-2023-4201</div>
+                    </a>
+                    <a href="https://github.com/linchengqiao" class="contact-item" target="_blank">
                         <div class="icon">&#9670;</div>
                         <div class="label">GitHub</div>
-                        <div class="value">@yourusername</div>
+                        <div class="value">@linchengqiao</div>
                     </a>
-                    <a href="https://twitter.com/yourusername" class="contact-item" target="_blank">
-                        <div class="icon">&#10022;</div>
-                        <div class="label">Twitter</div>
-                        <div class="value">@yourusername</div>
-                    </a>
-                    <a href="https://linkedin.com/in/yourusername" class="contact-item" target="_blank">
+                    <a href="#" class="contact-item">
                         <div class="icon">&#9733;</div>
-                        <div class="label">LinkedIn</div>
-                        <div class="value">YourName</div>
+                        <div class="label">Location</div>
+                        <div class="value">福建，厦门</div>
                     </a>
                 </div>
             </section>
+
+            <footer>
+                <p>&copy; 2026 林诚乔</p>
+            </footer>
         </main>
     </div>
 </body>
