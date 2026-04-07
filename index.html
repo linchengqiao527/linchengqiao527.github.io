@@ -52,15 +52,17 @@
             width: 80px;
             height: 80px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #1a2a3a, #0d1117);
-            border: 2px solid #1e3a5f;
             margin: 0 auto 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: #4da3ff;
+            overflow: hidden;
+            border: 2px solid #1e3a5f;
             position: relative;
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         .avatar::after {
@@ -69,6 +71,7 @@
             inset: -4px;
             border-radius: 50%;
             border: 1px solid rgba(77, 163, 255, 0.2);
+            pointer-events: none;
         }
 
         .sidebar h1 {
@@ -455,7 +458,9 @@
     <div class="layout">
         <!-- 左侧栏 -->
         <aside class="sidebar">
-            <div class="avatar">LCQ</div>
+            <div class="avatar">
+                <img src="avatar.jpg" alt="林诚乔">
+            </div>
             <h1>林诚乔</h1>
             <div class="title">Algorithm Engineer</div>
             <p class="bio">
@@ -586,7 +591,6 @@
                     <div class="meta">vol. 27, no. 2, pp. 839-848, 2021</div>
                     <div class="links">
                         <a href="https://ieeexplore.ieee.org/document/9228894/" target="_blank">IEEE Xplore</a>
-                        <a href="https://ieeexplore.ieee.org/iel7/2945/9340023/09228894.pdf" target="_blank">PDF</a>
                         <a href="https://doi.org/10.1109/TVCG.2020.3030416" target="_blank">DOI</a>
                     </div>
                 </div>
@@ -600,8 +604,20 @@
                     <div class="meta">vol. 35, no. 1, pp. 833-846, 2023</div>
                     <div class="links">
                         <a href="https://ieeexplore.ieee.org/document/9540306/" target="_blank">IEEE Xplore</a>
-                        <a href="https://ieeexplore.ieee.org/iel7/69/10036334/09540306.pdf" target="_blank">PDF</a>
                         <a href="https://doi.org/10.1109/TKDE.2021.3112386" target="_blank">DOI</a>
+                    </div>
+                </div>
+                <div class="paper">
+                    <h3>Attention Based Convolutional Networks for Traffic Flow Prediction</h3>
+                    <div class="meta">
+                        <span class="venue">Multimedia Tools and Applications</span>
+                        <span class="badge">CCF-B</span>
+                    </div>
+                    <div class="meta">Lin J., <strong>Lin C.</strong>, Ye Q.</div>
+                    <div class="meta">vol. 83, no. 3, pp. 7379-7394, 2024</div>
+                    <div class="links">
+                        <a href="https://link.springer.com/article/10.1007/s11042-023-15395-w" target="_blank">Springer</a>
+                        <a href="https://doi.org/10.1007/s11042-023-15395-w" target="_blank">DOI</a>
                     </div>
                 </div>
                 <div class="paper">
@@ -609,10 +625,21 @@
                     <div class="meta">
                         <span class="venue">ICCRD 2021</span>
                     </div>
-                    <div class="meta"><strong>Lin C.</strong>, Lin J., Chen P., et al.</div>
+                    <div class="meta"><strong>Lin C.</strong>, Lin J., Chen P., Luo B.</div>
                     <div class="links">
                         <a href="https://ieeexplore.ieee.org/document/9730366/" target="_blank">IEEE Xplore</a>
                         <a href="https://doi.org/10.1109/ICCRD53934.2022.00025" target="_blank">DOI</a>
+                    </div>
+                </div>
+                <div class="paper">
+                    <h3>Hybrid Artificial Immune System for Controlled Procedural Modeling</h3>
+                    <div class="meta">
+                        <span class="venue">IEEE ICPECA 2022</span>
+                    </div>
+                    <div class="meta"><strong>Lin C.</strong>, Fang L., Li S., Luo B., Lin J.</div>
+                    <div class="links">
+                        <a href="https://ieeexplore.ieee.org/document/9719277/" target="_blank">IEEE Xplore</a>
+                        <a href="https://doi.org/10.1109/ICPECA53709.2022.9719277" target="_blank">DOI</a>
                     </div>
                 </div>
             </section>
